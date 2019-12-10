@@ -1,5 +1,5 @@
 const DataStructures =
     {
         Queue: 0,
-        Stack: 2
+        Stack: 1
     };
