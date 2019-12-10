@@ -1,6 +1,6 @@
 import { IDataScructure } from "./IDataStructure";
 
-export class Queue<T> implements IDataScructure 
+export class Stack<T> implements IDataScructure 
 {
     _storage: T[] = [];
 
@@ -16,14 +16,20 @@ export class Queue<T> implements IDataScructure
 
     public peekItem()
     {
-        var firstElement = this._storage.shift();
+        var firstElement = this._storage.pop();
         this.addNewItem(firstElement);
+
+        for(var i = 0; i < this.size() - 1; i++)
+        {
+            this.addNewItem(this.getItem());
+        }
+
         return firstElement;
     }
 
     public getItem()
     {
-        return this._storage.shift();
+        return this._storage.pop();
     }
 
     public isEmpty() : boolean
