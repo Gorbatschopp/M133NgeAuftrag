@@ -1,6 +1,12 @@
 <h3>Cart</h3>
 
-<div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.name }}</span>
-  <span>{{ item.price | currency }}</span>
+<div *ngFor="let item of items; let i = index">
+  <div class="cartItem">
+    <span>{{ item.product['name'] }}</span>
+    <span><button (click)="Sub(i)">-</button></span>
+    <span>{{ item.amount }}</span>
+    <span><button (click)="Add(i)">+</button></span>
+    <span *ngIf="item.product['salePrice']">{{ item.product['salePrice'] * item.amount | currency:'CHF ' }}</span>
+    <span *ngIf="!item.product['salePrice']">{{ item.product['salePrice'] * item.amount | currency:'CHF ' }}</span>
+  </div>
 </div>

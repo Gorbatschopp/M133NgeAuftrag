@@ -4,9 +4,9 @@
   <h3>{{ product.name }}</h3>
   <h4>{{ product.description }}</h4>
   <img [src]="product.source">
-  <p *ngIf="product.salePrice" class="salePrice">Price: {{product.price | currency}}</p>
-  <p *ngIf="product.salePrice">Sale: {{product.salePrice | currency}}</p>
-  <p *ngIf="!product.salePrice">Price: {{product.price | currency}}</p>
+  <p *ngIf="product.salePrice" class="salePrice">Price: {{product.price | currency:'CHF '}}</p>
+  <p *ngIf="product.salePrice">Sale: {{product.salePrice | currency:'CHF '}}</p>
+  <p *ngIf="!product.salePrice">Price: {{product.price | currency:'CHF '}}</p>
 
   <button (click)="addToCart(product)">Buy</button>
 </div>

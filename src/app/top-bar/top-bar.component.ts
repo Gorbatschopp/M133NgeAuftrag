@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieShopService } from "../cookie-service/cookie-service";
 
 @Component({
   selector: 'app-top-bar',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public cookieService: CookieShopService) { }
+
+  amount: number;
 
   ngOnInit() {
+  this.getAmount();
   }
 
+  public getAmount()
+  {
+    this.amount = this.cookieService.GetTotalAmount();
+    setTimeout( () => {this.getAmount();}, 100);
+    // new Promise( resolve => setTimeout(resolve, 5000) )
+    // this.getAmount();
+  }
 }

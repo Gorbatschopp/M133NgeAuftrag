@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { products } from '../products';
-import { CartService } from '../cart-service/cart.service';
 
 import { CookieShopService } from "../cookie-service/cookie-service";
 
@@ -16,7 +15,6 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService,
     private cookieService: CookieShopService
   ) { }
 

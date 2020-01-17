@@ -13,6 +13,7 @@ export  class CookieShopService
     }
 
     value: Number;
+    amount: number;
     valueToo: string;
 
     cookieArray = [];
@@ -38,7 +39,7 @@ export  class CookieShopService
     public DecreaseProductCookie(index: number)
     {
         this.value = +this.cService.get(index.toString()) - 1;
-        if(this.value = 0)
+        if(this.value == 0)
         {
             this.cService.delete(index.toString());
         }
@@ -55,15 +56,19 @@ export  class CookieShopService
             const element = products[index];
             if(this.cService.check(index.toString()))
             {
-                console.log( this.cService.get(index.toString()));
-                this.cookieArray.push(products[index], this.cService.get(index.toString()));
+                this.cookieArray.push({product: products[index], amount: this.cService.get(index.toString())});
             }
         }
 
-        // this.cookieArray.forEach(element => {
-        //     console.log(element.product);
-        // });
+        return this.cookieArray.splice(1);
+    }
 
-        return this.cookieArray;
+    public GetTotalAmount()
+    {
+        this.amount = 0;
+        this.GetProductCookie().forEach(element => {
+            this.amount += +element.amount;
+        });
+        return this.amount;
     }
 }

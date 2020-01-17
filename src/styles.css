@@ -130,7 +130,7 @@ app-top-bar h1 {
 
 /* Checkout Cart, Shipping Prices */
 
-.cart-item, .shipping-item {
+.cartItem, .shippingItem {
   width: 100%;
   min-width: 400px;
   max-width: 450px;
