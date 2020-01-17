@@ -1,0 +1,18 @@
+<div class="Products">
+  <div *ngFor="let product of products; let i = index" class="Products">
+    <div class="product" [routerLink]="['/products', i]">
+      <h3>
+        <a [title]="product.name + ' details'">
+          {{ product.name }}
+        </a>
+        <br>
+        <img src="{{product.source}}" class="countryEntry" />
+      </h3>
+
+      <p *ngIf="product.description" class="listText">Description: {{ product.description }}</p>
+      <p *ngIf="product.salePrice" class="salePrice">Price: {{product.price | currency}}</p>
+      <p *ngIf="product.salePrice">Sale: {{product.salePrice | currency}}</p>
+      <p *ngIf="!product.salePrice">Price: {{product.price | currency}}</p>
+    </div>
+  </div>
+</div>

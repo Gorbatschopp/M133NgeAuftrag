@@ -1,0 +1,22 @@
+.Products {
+    padding-top: 10px;
+    padding-left: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.product {
+    width: 250px;
+}
+.salePrice {
+    text-decoration: line-through;
+    color: red;
+}
+
+.productButton {
+    display: flex;
+}
+
+.countryEntry{
+    height: 200px;
+    width: 200px;
+}
